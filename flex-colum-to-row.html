@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Column Flex Container with Row-like Items (Updated Selector)</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            background-color: #f0f0f0;
+            height: 140px; /* 容纳一个项目的高度加上上下padding */
+            width: 500px; /* 提供足够的宽度以显示所有项目 */
+            overflow: visible; /* 允许内容溢出以显示所有项目 */
+        }
+        .item {
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            flex-shrink: 0; /* 防止元素被压缩 */
+        }
+        .item:not(:first-child)  {
+            margin-top: -100px; /* 将元素拉回到与第一个元素同一行 */
+        }
+        .item:nth-child(2) {
+            margin-left: 120px; /* 第一个和第二个元素之间的间距 */
+        }
+        .item:nth-child(3) {
+            margin-left: 240px; /* 第一个和第三个元素之间的间距 */
+        }
+        .item:nth-child(4) {
+            margin-left: 360px; /* 第一个和第四个元素之间的间距 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+    </div>
+</body>
+</html>

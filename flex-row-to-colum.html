@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corrected Flexible Height Items with Margin-based Layout</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: row;
+            padding: 20px;
+            background-color: #f0f0f0;
+            width: 140px; /* 调整为刚好容纳一个项目的宽度加上padding */
+            overflow: visible; /* 允许内容溢出以显示所有项目 */
+        }
+        .item {
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            flex-shrink: 0; /* 防止元素被压缩 */
+        }
+
+        .item:not(:first-child)  {
+            margin-left: -100px; /* 将元素拉回到与第一个元素同一行 */
+        }
+
+        .item:nth-child(1) {
+            margin-top: 0;
+            margin-left: 0;
+        }
+        .item:nth-child(2) {
+            margin-top: 120px;
+        }
+        .item:nth-child(3) {
+            margin-top: 240px;
+        }
+        .item:nth-child(4) {
+            margin-top: 360px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+    </div>
+</body>
+</html>
